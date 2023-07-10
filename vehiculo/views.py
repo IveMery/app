@@ -14,3 +14,8 @@ def addVehiculo(request):
         form = VehiculoForm()
         messages.success(request, 'Los datos de han procesado exitosamente!')
     return render(request, "addform.html", {'form': form})    
+
+
+def listarView(request):
+    template_name = 'listar.html'
+    return render(request,"listar.html")

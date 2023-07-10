@@ -10,12 +10,9 @@
     margin-top: 40px;
     }
     </style>
-
-
-
 <div class="i-am-centered">
-    <h3>Ingresar Vehiculo</h3>
-    <form method="POST">
+    <h3 class="text-center">Ingresar Vehiculo</h3>
+    <form class="p-3" method="POST">
         {% csrf_token %}
         <div class="form-group">
             <label>Marca</label>
@@ -41,6 +38,7 @@
                 {{ form.precio }}
             </div>
             <button type="submit" class="btn btn-success mt-3">Enviar</button>
+        </div>    
     </form>
 </div>
 {% endblock %}
