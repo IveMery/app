@@ -16,7 +16,6 @@ class VehiculoModel(models.Model):
         ('Carga','Carga'),
     )
 
-
     marca = models.CharField(max_length=20 , choices=MARCAS_OPTIONS,default= 'Ford')
     modelo = models.CharField(max_length=100)
     serial_carroceria = models.CharField(max_length=50)
@@ -25,6 +24,12 @@ class VehiculoModel(models.Model):
     precio = models.IntegerField()
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now_add=True)
+
+class Meta:
+    Permissions =(
+        ("visualizar_catalogo","Puede visualizar_catalogo"),
+    )
+
 
 def __str__(self):
     return self.marca

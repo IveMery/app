@@ -1,0 +1,16 @@
+{% include "menu.html" %} 
+{% block content %} 
+    {% load crispy_forms_tags %} 
+    <!-- login -->
+    <div class="containe py-5">
+        <h1>Login</h1>
+        <form method="POST">
+            {% csrf_token %} 
+            {{ login_form|crispy }} 
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+        <p class="text-center">
+            Si no tienes cuenta ,registrate en <a href="/vehiculo/registro">,para crear una cuenta</a>.
+        </p>
+    </div>
+{% endblock %}  
