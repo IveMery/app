@@ -25,11 +25,11 @@ class VehiculoModel(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now_add=True)
 
-class Meta:
-    Permissions =(
-        ("visualizar_catalogo","Puede visualizar_catalogo"),
+    class Meta:
+        permissions =(
+            ("visualizar_catalogo","Puede visualizar_catalogo"),
     )
 
 
-def __str__(self):
-    return self.marca
+    def __str__(self):
+        return self.marca

@@ -11,6 +11,7 @@
     }
     </style>
 <div class="i-am-centered">
+    {% if perms.vehiculo.visualizar_catalogo and perms.vehiculo.add_vehiculomodel %}
     <h3 class="text-center">Ingresar Vehiculo</h3>
     <form class="p-3" method="POST">
         {% csrf_token %}
@@ -40,5 +41,8 @@
             <button type="submit" class="btn btn-success mt-3">Enviar</button>
         </div>    
     </form>
+    {% else %}
+      <h3>Necesitas tener permisos para agregar un vehiculo</h3>
+    {% endif %}
 </div>
 {% endblock %}

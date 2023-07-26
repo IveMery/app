@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from .forms import VehiculoForm,RegistroUsuarioForm
 from tokenize import PseudoExtras
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import login,authenticate
 from django.contrib.auth.forms import AuthenticationForm
@@ -23,10 +23,6 @@ def addVehiculo(request):
         messages.success(request, 'Los datos de han procesado exitosamente!')
     return render(request, "addform.html", {'form': form})    
 
-
-def listarView(request):
-    template_name = 'listar.html'
-    return render(request,"listar.html")
 
 
 #registro
@@ -69,15 +65,15 @@ def login_view(request):
     context = {"login_form": form}
     return render(request, "login.html", context)
 
+
 def listar_vehiculo(request):
-    vehiculos =VehiculoModel.objects.all()
-    context = { 'lista_vehiculos': vehiculos}
+    vehiculos = VehiculoModel.objects.all()
+    context = {'lista_vehiculos': vehiculos}
+    print(vehiculos)
+    print(request.user.get_all_permissions())
     return render(request, 'listar.html', context)
 
-
-"""
 def logout_view(request):
     logout(request)
     messages.info(request, "Se ha cerrado la sesion satisfactoriamente. ")
-    return HttpResponseRedirect('/menu')
-"""
+    return HttpResponseRedirect('/')

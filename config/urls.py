@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', indexView, name= 'index'),
     path('vehiculo/', include('vehiculo.urls')),
+
 ]
